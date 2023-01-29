@@ -1,9 +1,0 @@
-- clean: ['~']
-
-- link:
-    ~/.ssh/config:
-        path: ssh/config
-        create: true
-
-- shell:
-  - (cd macos && source ./_setup.sh)
