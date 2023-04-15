@@ -1,5 +1,9 @@
+#!/usr/bin/env bash
+
 # Based on the Atlassian Bare Repo tutorial
 # https://www.atlassian.com/git/tutorials/dotfiles
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 
 # Clone the dotfiles bare repo
 git clone --bare https://github.com/mattarau/dotfiles.git $HOME/.cfg
@@ -18,3 +22,5 @@ config checkout
 
 # Set the config repo to not show untracked files
 config config --local status.showUntrackedFiles no
+
+source $SCRIPT_DIR/homebrew.sh
