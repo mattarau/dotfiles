@@ -1,0 +1,8 @@
+# Taps
+tap 'homebrew/cask'
+tap "homebrew/cask-fonts"
+tap 'homebrew/bundle'
+
+# Apps
+cask 'alacritty'
+cask "font-hack-nerd-font"
