@@ -3,6 +3,9 @@ tap 'homebrew/cask'
 tap "homebrew/cask-fonts"
 tap 'homebrew/bundle'
 
+# Formulae
+brew "zsh"
+
 # Apps
 cask 'alacritty'
 cask "font-hack-nerd-font"
