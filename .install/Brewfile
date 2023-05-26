@@ -6,6 +6,7 @@ tap 'homebrew/bundle'
 # Formulae
 brew "starship"
 brew "zsh"
+brew "zsh-syntax-highlighting"
 
 # Apps
 cask 'alacritty'

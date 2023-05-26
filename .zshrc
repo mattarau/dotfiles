@@ -11,5 +11,9 @@ source "${ZDOTDIR:-$HOME}/.zshpath"
 for f in $HOME/.config/shell/*; do source "$f"; done
 
 
+
+# Syntax Highlight
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Initiate Stardhip shell (Keep at the end)
 eval "$(starship init zsh)"
