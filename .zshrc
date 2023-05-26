@@ -10,3 +10,6 @@ source "${ZDOTDIR:-$HOME}/.zshpath"
 # Source configs
 for f in $HOME/.config/shell/*; do source "$f"; done
 
+
+# Initiate Stardhip shell (Keep at the end)
+eval "$(starship init zsh)"
