@@ -18,5 +18,8 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Auto-Suggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Smarter cd command.
+eval "$(zoxide init zsh)"
+
 # Initiate Stardhip shell (Keep at the end)
 eval "$(starship init zsh)"
