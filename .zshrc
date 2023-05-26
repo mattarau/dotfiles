@@ -15,5 +15,8 @@ for f in $HOME/.config/shell/*; do source "$f"; done
 # Syntax Highlight
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Auto-Suggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Initiate Stardhip shell (Keep at the end)
 eval "$(starship init zsh)"
