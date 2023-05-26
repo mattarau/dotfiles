@@ -7,3 +7,6 @@ autoload -U colors && colors
 # Source PATH
 source "${ZDOTDIR:-$HOME}/.zshpath"
 
+# Source configs
+for f in $HOME/.config/shell/*; do source "$f"; done
+
