@@ -12,6 +12,10 @@ for f in $HOME/.config/shell/*; do source "$f"; done
 
 
 
+# Automatically list directory contents on `cd`.
+auto-ls() { ls; }
+chpwd_functions=(auto-ls $chpwd_functions)
+
 # THE FUCK!!!
 # Lazy-loading as suggested in this issue:
 # https://github.com/nvbn/thefuck/issues/859
