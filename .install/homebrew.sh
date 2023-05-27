@@ -3,3 +3,10 @@
 
 # Install Homebrew Bundle
 brew bundle install
+
+# -----------------------------------------------------------------------------
+# Post-install
+# -----------------------------------------------------------------------------
+
+# FZF Install
+$(brew --prefix)/opt/fzf/install --xdg --key-bindings --completion --no-update-rc --no-bash --no-fish

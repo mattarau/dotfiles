@@ -25,6 +25,10 @@ if command -v thefuck >/dev/null 2>&1; then
   }
 fi
 
+# Fuzzy Finder
+fzf_path="${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
+[ -f "$fzf_path" ] && source "$fzf_path"
+
 # Syntax Highlight
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
