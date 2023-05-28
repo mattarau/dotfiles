@@ -5,3 +5,8 @@ export PATH="/usr/local/sbin:$PATH"
 # HOMEBREW
 export PATH="/opt/homebrew/bin:$PATH"
 
+# PATHS
+# source "$HOME/.paths"
+
+
+

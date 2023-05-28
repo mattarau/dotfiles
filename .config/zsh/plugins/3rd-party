@@ -1,0 +1,22 @@
+# Syntax Highlight
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Auto-Suggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Fuzzy Finder
+fzf_path="$XDG_CONFIG_HOME/fzf/fzf.zsh"
+[ -f "$fzf_path" ] && source "$fzf_path"
+
+# THE FUCK!!!
+# Lazy-loading as suggested in this issue:
+# https://github.com/nvbn/thefuck/issues/859
+if command -v thefuck >/dev/null 2>&1; then
+  fuck() {
+    eval "$(thefuck --alias)" && fuck
+  }
+fi
+
+# Smarter cd command.
+eval "$(zoxide init zsh)"
+
