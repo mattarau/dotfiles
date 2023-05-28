@@ -4,6 +4,9 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Auto-Suggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Suggest aliases for commands
+source $(brew --prefix)/share/zsh-you-should-use/you-should-use.plugin.zsh
+
 # Fuzzy Finder
 fzf_path="$XDG_CONFIG_HOME/fzf/fzf.zsh"
 [ -f "$fzf_path" ] && source "$fzf_path"

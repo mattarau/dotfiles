@@ -6,11 +6,12 @@ tap 'homebrew/bundle'
 # Formulae
 brew "exa"
 brew "fzf"
-brew "thefuck"
 brew "starship"
+brew "thefuck"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
+brew "zsh-you-should-use"
 brew "zoxide"
 
 # Apps
