@@ -23,6 +23,8 @@ dotfiles checkout
 
 # Set the config repo to not show untracked files
 dotfiles config --local status.showUntrackedFiles no
+# Set the config repo to show the remote branches
+dotfiles config --local remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
 
 source $SCRIPT_DIR/homebrew.sh
 
