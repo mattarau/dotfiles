@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+if [[ $((git --version) 2>&1) == *"requesting install"* ]]; then
+  echo
+	echo "Git is not installed. Requesting install."
+	echo "Run this script again after it's done."
+  echo
+
+	exit
+fi
 
 # Based on the Atlassian Bare Repo tutorial
 # https://www.atlassian.com/git/tutorials/dotfiles
@@ -25,6 +32,8 @@ dotfiles checkout
 dotfiles config --local status.showUntrackedFiles no
 # Set the config repo to show the remote branches
 dotfiles config --local remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 
 source $SCRIPT_DIR/homebrew.sh
 
