@@ -1,0 +1,5 @@
+git:
+  paging:
+    colorArg: always
+    useConfig: true
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"

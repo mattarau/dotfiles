@@ -6,6 +6,10 @@ tap 'homebrew/bundle'
 # Formulae
 brew "exa"
 brew "fzf"
+brew "git-delta"
+brew "git"
+brew "gum"
+brew "lazygit"
 brew "starship"
 brew "thefuck"
 brew "zsh"

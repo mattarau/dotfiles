@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Dotfiles git bare $HOME dir as config
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias df='dotfiles'
+
+alias lazydf='lazygit --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias ldf='lazydf'

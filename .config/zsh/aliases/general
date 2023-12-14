@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Dotfiles git bare $HOME dir as config
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
 # Navigation
 alias q="cd ~"            # Go home
 alias -- -="cd -"         # Go back

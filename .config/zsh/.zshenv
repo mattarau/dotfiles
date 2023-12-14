@@ -7,6 +7,7 @@ export COLORTERM="truecolor"
 
 # Default Apps
 export TERMINAL="alacritty"
+export GIT_PAGER="delta"
 
 # Ensure that a non-login, non-interactive shell has a defined enviroment.
 # This is an adaptation of the idea of this zsh mailing list message:

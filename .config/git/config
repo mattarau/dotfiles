@@ -1,0 +1,87 @@
+[user]
+  ; These values are set in ./custom_global and ./custom_dotfiles.
+[include]
+  path = ./custom_global
+[includeIf "gitdir:~/.cfg"]
+  path = ./custom_dotfiles
+[core]
+	editor = nvim
+  pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+  navigate = true
+  light = false
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
+[color]
+	ui = auto
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
+[web]
+	browser = google-chrome
+[gitflow "prefix"]
+	feature = feature-
+	release = release-
+	hotfix = hotfix-
+	support = support-
+	versiontag = v
+[init]
+	defaultBranch = main
+[alias]
+  s = "status -s -b"
+  a = "add"
+  c = "commit"
+  b = "branch"
+  bav = "branch --all --verbose"
+  co = "checkout"
+  cob = "checkout -b"
+  pl = "pull"
+  ps = "push"
+
+  ria = "rebase -i --autosquash"
+
+  # Force pull 
+  psf = "!f(){ git fetch ${1} ${2} && git reset --hard ${1}/${2};};f"
+
+  # Short hash, relative date and message.
+  logd = "log --pretty='%C(yellow)%h %C(cyan)%ar %Creset%s'"
+
+  # Log One Liner
+  lol = "log --graph --decorate --oneline"
+
+  # Go to root of git repo.
+  gr = "! cd $(git rev-parse --show-toplevel)"
+
+  # Sync local and remote commits.
+  sync = "! git pull --rebase && git push"
+  
+  # Sync local and remote tags.
+  sync-tags = "! git fetch --tags && git push --tags"
+
+  # Sync local and remote commits and tags.
+  sync-all = "! git pull --rebase && git push --progress && git push --tags"
+
+  # Pick a commit to fixup.
+  # Depends on FZF
+  fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+  
+  # Find commit by message
+  find = log --all --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+[pull]
+  rebase = true
+[rebase]
+  autoStash = true
