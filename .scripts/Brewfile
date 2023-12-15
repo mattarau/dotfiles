@@ -23,5 +23,6 @@ brew "zoxide"
 
 # Apps
 cask "alacritty"
+cask "amethyst"
 cask "font-hack-nerd-font"
 cask "karabiner-elements"
