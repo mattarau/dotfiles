@@ -34,3 +34,7 @@ alias grep='grep --color=auto'
 
 # Enhanced cat
 alias cat=bat
+
+# Neovim
+alias vim=nvim
+alias vi=nvim
