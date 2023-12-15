@@ -21,5 +21,6 @@ brew "zsh-you-should-use"
 brew "zoxide"
 
 # Apps
-cask 'alacritty'
+cask "alacritty"
 cask "font-hack-nerd-font"
+cask "karabiner-elements"
