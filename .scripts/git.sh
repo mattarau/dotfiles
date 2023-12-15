@@ -25,3 +25,6 @@ function set_user() {
 
 set_user global
 set_user dotfiles
+
+# Set custom hooks path for dotfiles bare repo
+git config --file=$XDG_CONFIG_HOME/git/custom_dotfiles core.hooksPath ~/.scripts/git-hooks
