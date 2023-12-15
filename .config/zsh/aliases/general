@@ -38,3 +38,13 @@ alias cat=bat
 # Neovim
 alias vim=nvim
 alias vi=nvim
+
+############
+# Homebrew #
+############
+
+alias hbs="brew search"
+alias hbi="brew install"
+alias hbl="brew list"
+alias hbu="brew uninstall"
+alias hbn="brew info"
