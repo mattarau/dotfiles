@@ -1,0 +1,77 @@
+
+#!/bin/sh
+
+alias g="git"
+
+alias gcfu="git commit --fixup"
+alias gcosf='git checkout stash@{0} -- '
+alias gria='git rebase -i --autosquash'
+alias garw='git apply --reject --whitespace=fix '
+alias gfpf='git fetch -p && npx git-removed-branches --prune --force'
+
+# Resolve all rebase conflicts and continue
+# Must pass --ours or --theirs for the resolution
+grrc() {
+  git checkout "$1" .
+  git add .
+  git rebase --continue
+}
+
+# Rebase branch onto current branch.
+grc() {
+  git fetch origin "$1":"$1"
+  git rebase "$1"
+}
+
+# Stash staged
+gsstg() {
+  git stash push -m "$1" -- $(git diff --staged --name-only)
+}
+
+# Stash unstaged
+gsustg() {
+  git stash -k -u -m "$1"
+}
+
+# Start Feature
+gsf() {
+  git checkout master
+  git pull
+  git checkout -b feature/$1
+  git push --set-upstream origin feature/$1
+}
+
+# Start Flow Feature
+gsff() {
+  git checkout develop
+  git pull
+  git checkout -b feature/$1
+  git push --set-upstream origin feature/$1
+}
+
+# Prune branches against develop
+gbpd() {
+  git checkout develop
+  git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d
+}
+
+# Prune branches against master
+gbpm() {
+  git checkout master
+  git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d
+}
+
+# Branch compare commits
+# Usage: gbcc <branch> <branch>
+gbcc() {
+  git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --no-merges --date=relative ${1}...${2}
+}
+
+# Branch compare commits excluding 
+# Usage: gbcc <branch> <branch> <excluding-branch>
+gbccn() {
+  gbcc $1 $2 \
+    --not $(git for-each-ref --format="%(refname)" refs/heads |
+    grep -Fv $3)
+}
+
