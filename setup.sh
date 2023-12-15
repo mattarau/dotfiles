@@ -71,8 +71,9 @@ dotfiles config --local status.showUntrackedFiles no
 # Set the config repo to show the remote branches
 dotfiles config --local remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
 
-SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+exec "$SHELL"
 
-source "$SCRIPT_DIR"/homebrew.sh
-
-source "$SCRIPT_DIR"/git.sh
+echo
+echo "The dotfiles bare repo has been set up."
+echo
+echo "Run \`/bin/bash $HOME/.scripts/init.sh\` to install apps and configure the system."

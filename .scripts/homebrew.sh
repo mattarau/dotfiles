@@ -1,8 +1,11 @@
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+# Make sure brew in the the PATH (if "$ZDOTDIR/.zshpath" is not yet sourced).
+PATH="/opt/homebrew/bin:$PATH"
+
 # Install Homebrew Bundle
-brew bundle install
+brew bundle install --file="$HOME/.scripts/Brewfile"
 
 # -----------------------------------------------------------------------------
 # Post-install
