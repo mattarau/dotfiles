@@ -31,3 +31,6 @@ alias rm='rm -I'
 
 # Enhanced grep
 alias grep='grep --color=auto'
+
+# Enhanced cat
+alias cat=bat

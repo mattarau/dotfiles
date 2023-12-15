@@ -4,6 +4,7 @@ tap "homebrew/cask-fonts"
 tap 'homebrew/bundle'
 
 # Formulae
+brew "bat"
 brew "exa"
 brew "fzf"
 brew "git-delta"
