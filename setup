@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Create local bin directory
+mkdir -p ~/.local/bin
+
+# Install yadm
+curl -sfLo ~/.local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm
+
+# Make yadm executable
+chmod a+x ~/.local/bin/yadm
+
+# Clone and bootstrap dotfiles 
+~/.local/bin/yadm clone --bootstrap -f https://github.com/mattarau/dotfiles.git
+
+# Remove yadm from local bin directory (Bootstrap script will install it globally)
+rm -rf ~/.local/bin/yadm
+
+echo "Dotfiles setup completed!"

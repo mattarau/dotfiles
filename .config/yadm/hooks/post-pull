@@ -1,0 +1,23 @@
+#!/bin/sh
+
+function changed {
+  git diff --name-only HEAD@{1} HEAD | grep "^$1" > /dev/null 2>&1
+}
+
+if changed '.Brewfile'; then
+  echo
+  echo "📦 .Brewfile changed. Do you want to run 'brew bundle' now? [y/N]: "
+
+	read -r REPLY
+
+	case "$REPLY" in
+	y | Y)
+		brew bundle --global
+
+		;;
+	*)
+		echo "To install later, run: brew bundle --global"
+
+		;;
+	esac
+fi

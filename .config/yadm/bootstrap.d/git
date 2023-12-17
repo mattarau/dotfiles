@@ -8,23 +8,25 @@ function set_user() {
 	fi
 
 	if gum confirm "Do you want to setup a '$1' git user?"; then
-		FILE_PATH=$XDG_CONFIG_HOME/git/custom_$1
-
 		NAME=$(gum input --prompt "Name: ")
 		EMAIL=$(gum input --prompt "Email: ")
 
 		gum confirm "Confirm setting '$1' config user '$NAME <$EMAIL>'?"
 
-		rm -rf $FILE_PATH
-		touch $FILE_PATH
+		if [[ "$1" == "dotfiles" ]]; then
+			yadm gitconfig "user.name" "$NAME"
+			yadm gitconfig "user.email" "$EMAIL"
+		else
+			file_path="$XDG_CONFIG_HOME/git/custom_$1"
 
-		git config --file=$FILE_PATH user.name "$NAME"
-		git config --file=$FILE_PATH user.email "$EMAIL"
+			rm -rf "$file_path"
+			touch "$file_path"
+
+			git config --file="$file_path" user.name "$NAME"
+			git config --file="$file_path" user.email "$EMAIL"
+		fi
 	fi
 }
 
 set_user global
 set_user dotfiles
-
-# Set custom hooks path for dotfiles bare repo
-git config --file=$XDG_CONFIG_HOME/git/custom_dotfiles core.hooksPath ~/.scripts/git-hooks

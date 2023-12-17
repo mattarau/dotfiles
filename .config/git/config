@@ -1,9 +1,7 @@
 [user]
-  ; These values are set in ./custom_global and ./custom_dotfiles.
+  ; These values are set in ./custom_global.
 [include]
   path = ./custom_global
-[includeIf "gitdir:~/.cfg"]
-  path = ./custom_dotfiles
 [core]
 	editor = nvim
   pager = delta
