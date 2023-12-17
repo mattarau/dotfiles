@@ -1,5 +1,16 @@
 #!/bin/sh
 
+if [[ $( (git --version) 2>&1) == *"requesting install"* ]]; then
+	cat <<EOF
+
+Git is not installed. Requesting install.
+
+Run this script again after it's done.
+EOF
+
+	exit 1
+fi
+
 # Create local bin directory
 mkdir -p ~/.local/bin
 
@@ -9,8 +20,8 @@ curl -sfLo ~/.local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/
 # Make yadm executable
 chmod a+x ~/.local/bin/yadm
 
-# Clone and bootstrap dotfiles 
-~/.local/bin/yadm clone --bootstrap -f https://github.com/mattarau/dotfiles.git
+# Clone and bootstrap dotfiles
+~/.local/bin/yadm clone -f https://github.com/mattarau/dotfiles.git
 
 # Remove yadm from local bin directory (Bootstrap script will install it globally)
 rm -rf ~/.local/bin/yadm
