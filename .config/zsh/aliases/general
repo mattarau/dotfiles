@@ -1,27 +1,13 @@
 #!/bin/sh
 
-# Navigation
-alias q="cd ~"            # Go home
-alias -- -="cd -"         # Go back
-alias dl="cd ~/Downloads" # Go to Downloads
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
+command_exists () {
+  type "$1" &> /dev/null;
+}
 
 # Clear
 alias c="clear"
 alias clr="clear"
 alias ckear="clear"
-
-# List commands
-alias ls='exa --icons -l -h -m --group-directories-first'
-alias la='ls -a'
-alias l="la"
-
-# Copy output of last command
-alias clo='"$(history | tail -2 | sed "s/  [0-9]*  //;2d")" > /tmp/cmdoutput && cat /tmp/cmdoutput | xsel -b && notify-send "Terminal" "Ouput Copied"'
 
 # Confirm before changing things
 alias mv='mv -i'
@@ -29,22 +15,56 @@ alias cp='cp -i'
 alias ln='ln -i'
 alias rm='rm -I'
 
+# Navigation
+alias q="cd ~"            # Go home
+alias -- -="cd -"         # Go back
+alias dl="cd ~/Downloads" # Go to Downloads
+alias dt="cd ~/Desktop"   # Go to Downloads
+alias dc="cd ~/Documents" # Go to Downloads
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+# Enhances cd
+if command_exists z; then
+  alias cd="z"
+fi
+
+# List commands
+alias ll="ls -l"
+alias la="ll -a"
+alias l="ls -al"
+
+# Enhanced ls
+if command_exists exa; then
+  alias ls="exa -al --header --modified --icons --group-directories-first"
+  alias lt="lt --tree"
+fi
+
+# Enhanced cat
+if command_exists bat; then
+  alias cat=bat
+fi
+
+# Neovim
+if command_exists nvim; then
+  alias vim=nvim
+  alias vi=nvim
+fi
+
+# Homebrew
+if command_exists brew; then
+  alias hbs="brew search"
+  alias hbi="brew install"
+  alias hbl="brew list"
+  alias hbu="brew uninstall"
+  alias hbn="brew info"
+fi
+
 # Enhanced grep
 alias grep='grep --color=auto'
 
-# Enhanced cat
-alias cat=bat
-
-# Neovim
-alias vim=nvim
-alias vi=nvim
-
-############
-# Homebrew #
-############
-
-alias hbs="brew search"
-alias hbi="brew install"
-alias hbl="brew list"
-alias hbu="brew uninstall"
-alias hbn="brew info"
+# Copy output of last command
+alias clo='"$(history | tail -2 | sed "s/  [0-9]*  //;2d")" > /tmp/cmdoutput && cat /tmp/cmdoutput | xsel -b && notify-send "Terminal" "Ouput Copied"'
