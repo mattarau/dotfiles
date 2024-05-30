@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+dir="$XDG_CONFIG_HOME/alacritty/alacritty-theme"
+
+# Clone theme repo
+git clone https://github.com/alacritty/alacritty-theme $dir

@@ -1,0 +1,35 @@
+live_config_reload = true
+
+import = ["~/.config/alacritty/alacritty-theme/themes/tokyo-night.toml"]
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 15.0
+
+[font.bold]
+family = "Hack Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "Hack Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "Hack Nerd Font Mono"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "N"
+mods = "Command"
+
+[window]
+decorations = "transparent"
+opacity = 0.9
+option_as_alt = "OnlyLeft"
+
+[window.padding]
+x = 16
+y = 16
