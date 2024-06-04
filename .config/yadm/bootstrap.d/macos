@@ -21,10 +21,21 @@ done 2>/dev/null &
 # Computer Name                                                               #
 ###############################################################################
 
-set_computer_name() {
-	sudo scutil --set ComputerName "${1:=$(scutil --get ComputerName)}"
+comp_curr_name=$(scutil --get ComputerName)
 
-	sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$1"
+set_computer_name() {
+	new="${1:-$comp_curr_name}"
+
+	if [[ "$new" != "$comp_curr_name" ]]; then
+		sudo scutil --set ComputerName "$new"
+
+		sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$new"
+
+		gum log --structured --level info "The computer name was changed to '$new'"
+	else
+		gum log --structured --level warn "The computer name was not changed"
+	fi
 }
 
-gum confirm "Set computer name? (Current: $(scutil --get ComputerName))" && set_computer_name $(gum input --prompt "Computer Name: ")
+gum confirm "Set computer name? (Current: $comp_curr_name)" &&
+	set_computer_name "$(gum input --prompt "Computer Name: ")"
