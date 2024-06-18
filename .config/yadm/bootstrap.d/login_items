@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# REFs:
+# - https://apple.stackexchange.com/questions/376116/adding-login-items-from-terminal-in-catalina
+# - https://apple.stackexchange.com/questions/310495/can-login-items-be-added-via-the-command-line-in-high-sierra
+
+add_login_item() {
+	osascript -e 'tell application "System Events" to ¬' \
+		-e 'make new login item with properties ¬' \
+		-e "{name:\"$1\", path:\"/Applications/$1.app\", hidden: true}"
+}
+
+apps=(
+  "Amethyst"
+  "Karabiner-Elements"
+)
+
+for app in "${apps[@]}"; do
+	add_login_item "${app}"
+done
