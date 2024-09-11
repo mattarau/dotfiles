@@ -5,7 +5,7 @@ tap 'homebrew/bundle'
 
 # Formulae
 brew "bat"
-brew "exa"
+brew "eza"
 brew "fzf"
 brew "git-delta"
 brew "git"

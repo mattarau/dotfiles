@@ -32,16 +32,16 @@ if command_exists z; then
   alias cd="z"
 fi
 
+# Enhanced ls
+if command_exists eza; then
+  alias ls="eza -al --header --modified --icons --group-directories-first"
+  alias lt="lt --tree"
+fi
+
 # List commands
 alias ll="ls -l"
 alias la="ll -a"
 alias l="ls -al"
-
-# Enhanced ls
-if command_exists exa; then
-  alias ls="exa -al --header --modified --icons --group-directories-first"
-  alias lt="lt --tree"
-fi
 
 # Enhanced cat
 if command_exists bat; then
